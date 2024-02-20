@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class nomor1 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan bilangan ril: ");
+        double bilangan = scanner.nextDouble();
+
+        // Memisahkan angka sebelum dan setelah koma
+        String[] splitBilangan = String.valueOf(bilangan).split("\\.");
+
+        // Memeriksa apakah angka sebelum dan setelah koma adalah kelipatan 3
+        int angkaSebelumKoma = Integer.parseInt(splitBilangan[0]);
+        int angkaDibelakangKoma = Integer.parseInt(splitBilangan[1]);
+
+        if (angkaSebelumKoma % 3 == 0 && angkaDibelakangKoma % 3 == 0) {
+            System.out.println("Angka sebelum dan setelah koma adalah kelipatan 3.");
+        } else {
+            System.out.println("Angka sebelum dan setelah koma bukan kelipatan 3.");
+        }
+
+        scanner.close();
+    }
+}
