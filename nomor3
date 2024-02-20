@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class nomor3 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input waktu jam mulai
+        System.out.print("Jam Mulai (Jam, Menit): ");
+        int jamMulai = scanner.nextInt();
+        int menitMulai = scanner.nextInt();
+
+        // Input waktu jam selesai
+        System.out.print("Jam Keluar (Jam, Menit): ");
+        int jamSelesai = scanner.nextInt();
+        int menitSelesai = scanner.nextInt();
+
+        // Hitung selisih waktu dalam menit
+        int selisihMenit = hitungSelisihMenit(jamMulai, menitMulai, jamSelesai, menitSelesai);
+
+        // Hitung lama waktu dalam jam dan menit
+        int lamaJam = selisihMenit / 60;
+        int lamaMenit = selisihMenit % 60;
+
+        // Menampilkan hasil
+        System.out.println("Lama (menit): " + selisihMenit);
+        System.out.println("Lama (Jam, Menit): " + lamaJam + " jam " + lamaMenit + " menit");
+
+        scanner.close();
+    }
+
+    // Fungsi untuk menghitung selisih waktu dalam menit
+    private static int hitungSelisihMenit(int jamMulai, int menitMulai, int jamSelesai, int menitSelesai) {
+        int selisihJam = jamSelesai - jamMulai;
+        int selisihMenit = menitSelesai - menitMulai;
+
+        // Jika selisihMenit negatif, tambahkan 60 menit dan kurangkan 1 jam
+        if (selisihMenit < 0) {
+            selisihMenit += 60;
+            selisihJam--;
+        }
+
+        // Konversi selisih waktu ke dalam menit
+        return selisihJam * 60 + selisihMenit;
+    }
+}
