@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class nomor2 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input bilangan pertama
+        System.out.print("Masukkan bilangan pertama: ");
+        int bilangan1 = scanner.nextInt();
+
+        // Input bilangan kedua
+        System.out.print("Masukkan bilangan kedua: ");
+        int bilangan2 = scanner.nextInt();
+
+        // Input operator aritmatika
+        System.out.print("Masukkan operator aritmatika (+, -, *, /, %): ");
+        char operator = scanner.next().charAt(0);
+
+        // Proses perhitungan berdasarkan operator
+        int hasil = 0;
+        switch (operator) {
+            case '+':
+                hasil = bilangan1 + bilangan2;
+                System.out.println("Hasil penjumlahan " + bilangan1 + " dan " + bilangan2 + " adalah: " + hasil);
+                break;
+            case '-':
+                hasil = bilangan1 - bilangan2;
+                System.out.println("Hasil pengurangan " + bilangan1 + " dan " + bilangan2 + " adalah: " + hasil);
+                break;
+            case '*':
+                hasil = bilangan1 * bilangan2;
+                System.out.println("Hasil perkalian " + bilangan1 + " dan " + bilangan2 + " adalah: " + hasil);
+                break;
+            case '/':
+                if (bilangan2 != 0) {
+                    hasil = bilangan1 / bilangan2;
+                    System.out.println("Hasil pembagian " + bilangan1 + " dan " + bilangan2 + " adalah: " + hasil);
+                } else {
+                    System.out.println("Pembagian oleh nol tidak diperbolehkan.");
+                }
+                break;
+            case '%':
+                if (bilangan2 != 0) {
+                    hasil = bilangan1 % bilangan2;
+                    System.out.println("Hasil modulo " + bilangan1 + " dan " + bilangan2 + " adalah: " + hasil);
+                } else {
+                    System.out.println("Modulo dengan nol tidak diperbolehkan.");
+                }
+                break;
+            default:
+                System.out.println("Operator aritmatika tidak valid.");
+        }
+
+        scanner.close();
+    }
+}
